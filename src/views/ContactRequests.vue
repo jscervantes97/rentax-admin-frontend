@@ -3,9 +3,9 @@
     <!-- Delete dialog-->
     <v-dialog v-model="dialog" width="500">
       <v-card>
-        <v-card-title class="headline error white--text" dark>Eliminar reseña</v-card-title>
+        <v-card-title class="headline error white--text" dark>Eliminar solicitud de contacto</v-card-title>
 
-        <v-card-title>¿Seguro desea eliminar la reseña {{ selectedReview.customer }} ?</v-card-title>
+        <v-card-title>¿Seguro desea eliminar la solicitud {{ selectedReview.customer }} ?</v-card-title>
 
         <v-divider></v-divider>
 
@@ -18,16 +18,7 @@
     </v-dialog>
 
     <v-container>
-      <h2 class="grey--text">Testimonios</h2>
-
-      <!-- Toolbar -->
-      <v-row>
-        <v-col cols="12" md="6" class="d-flex align-center">
-          <v-btn color="primary" depressed link to="/add-testimony">Agregar Testimonio</v-btn>
-        </v-col>
-        <v-col cols="12" md="6" class="d-flex align-center">
-        </v-col>
-      </v-row>
+      <h2 class="grey--text">Solicitudes de Contacto actuales</h2>
 
       <v-card class="pa-2 mt-3" outlined>
         <v-data-table
@@ -47,6 +38,7 @@
 
           <template v-slot:item.actions="{ item }">
             <!-- <v-btn text small color="primary" :to="{ name: 'edit-post', params: { id: item._id} }">Editar</v-btn> -->
+            <v-btn text small color="primary" @click="openDelete(item._id, item.customer)">Ver</v-btn>
             <v-btn text small color="error" @click="openDelete(item._id, item.customer)">Eliminar</v-btn>
           </template>
 
@@ -66,7 +58,7 @@ export default {
       reviews: [],
       loading: true,
       headers: [
-        { text: "Cliente", value: "customer" },
+        { text: "Nombre Contacto", value: "customer" },
         { text: "Acciones", value: "actions" }
       ],
       selectedReview: {

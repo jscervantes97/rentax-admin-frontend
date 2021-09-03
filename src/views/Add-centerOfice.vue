@@ -1,15 +1,18 @@
 <template>
   <div class="add-review">
     <v-container>
-      <h2 class="grey--text">Nuevo Testimonio</h2>
+      <h2 class="grey--text">Nuevo Centro</h2>
       <v-card class="mx-auto mt-4 pa-4" outlined>
         <v-form ref="form" v-model="valid" lazy-validation>
           <v-container>
             <v-row>
-              <v-col cols="12" sm="12" md="12">
-                <v-text-field label="Nombre del cliente" v-model="form.customer" :rules="rules.customer" required></v-text-field>
+              <v-col cols="12" sm="12" md="6">
+                <v-text-field label="Nombre del Centro" v-model="form.customer" :rules="rules.customer" required></v-text-field>
               </v-col>
-              <v-col cols="12" md="12">
+              <v-col cols="12" sm="12" md="6">
+                <v-text-field label="Slogan" v-model="form.customer" :rules="rules.customer" required></v-text-field>
+              </v-col>
+               <v-col cols="12" md="12">
                   <div
                   v-if="!selectedFile"
                   style="height:144px;width:100%;"
@@ -26,7 +29,7 @@
                     <span>
                       <v-icon>mdi-cloud-upload</v-icon>
                     </span>
-                    <br />Agregar imagen
+                    <br />Agregar imagen del banner
                   </label>
                 </div>
                 <!-- Logo Image -->
@@ -46,17 +49,107 @@
                   </v-btn>
                   <v-img :src="image" max-height="400px"></v-img>
                 </div>
-                <p v-if="imageRule" class="error--text py-3">Ingresa la imagén del banner</p>
+                <p v-if="imageRule" class="error--text py-3">Ingresa imagen descriptiva de la zona</p>
               </v-col>
-              <v-col cols="12" md="12">
+              <v-col cols="12" md="6">
+                  <div
+                  v-if="!selectedFile"
+                  style="height:144px;width:100%;"
+                  class="grey lighten-3"
+                >
+                  <input
+                    id="imageFile"
+                    class="mb-4 add-image-btn"
+                    type="file"
+                    block
+                    @change="onFileChange"
+                  />
+                  <label for="imageFile" class="grey lighten-3">
+                    <span>
+                      <v-icon>mdi-cloud-upload</v-icon>
+                    </span>
+                    <br />Agregar imagen descriptiva de la zona
+                  </label>
+                </div>
+                <!-- Logo Image -->
+                <div v-else style="position:relative">
+                  <v-btn
+                    color="red"
+                    class="v-btn--example"
+                    dark
+                    top
+                    right
+                    small
+                    fab
+                    style="position:absolute;z-index:3;top:-8px;right:20px;"
+                    @click="removeImage"
+                  >
+                    <v-icon>mdi-close</v-icon>
+                  </v-btn>
+                  <v-img :src="image" max-height="400px"></v-img>
+                </div>
+                <p v-if="imageRule" class="error--text py-3">Ingresa imagen descriptiva de la zona</p>
+              </v-col>
+              <v-col cols="12" md="6">
                 <v-textarea
-                  label="Testimonio"
+                  label="Descripcion Zona"
                   v-model="form.description"
                   :rules="rules.description"
                   rows="3"
                   row-height="40"
                 ></v-textarea>
-              </v-col>        
+              </v-col>   
+              <v-col cols="12" sm="12" md="12">
+                <v-text-field label="Descripcion punto conexion" v-model="form.customer" :rules="rules.customer" required></v-text-field>
+              </v-col>   
+              <v-col cols="12" md="6">
+                  <div
+                  v-if="!selectedFile"
+                  style="height:144px;width:100%;"
+                  class="grey lighten-3"
+                >
+                  <input
+                    id="imageFile"
+                    class="mb-4 add-image-btn"
+                    type="file"
+                    block
+                    @change="onFileChange"
+                  />
+                  <label for="imageFile" class="grey lighten-3">
+                    <span>
+                      <v-icon>mdi-cloud-upload</v-icon>
+                    </span>
+                    <br />Agregar imagen descriptiva de la zona
+                  </label>
+                </div>
+                <!-- Logo Image -->
+                <div v-else style="position:relative">
+                  <v-btn
+                    color="red"
+                    class="v-btn--example"
+                    dark
+                    top
+                    right
+                    small
+                    fab
+                    style="position:absolute;z-index:3;top:-8px;right:20px;"
+                    @click="removeImage"
+                  >
+                    <v-icon>mdi-close</v-icon>
+                  </v-btn>
+                  <v-img :src="image" max-height="400px"></v-img>
+                </div>
+                <p v-if="imageRule" class="error--text py-3">Ingresa imagen de la ubicacion</p>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-textarea
+                  label="Descripcion de la ubicacion"
+                  v-model="form.description"
+                  :rules="rules.description"
+                  rows="3"
+                  row-height="40"
+                ></v-textarea>
+              </v-col>    
             </v-row>
           </v-container>
         </v-form>

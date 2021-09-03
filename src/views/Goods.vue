@@ -5,7 +5,7 @@
       <v-card>
         <v-card-title class="headline error white--text" dark>Eliminar reseña</v-card-title>
 
-        <v-card-title>¿Seguro desea eliminar la reseña {{ selectedReview.customer }} ?</v-card-title>
+        <v-card-title>¿Seguro desea eliminar la solicitud {{ selectedReview.customer }} ?</v-card-title>
 
         <v-divider></v-divider>
 
@@ -18,40 +18,8 @@
     </v-dialog>
 
     <v-container>
-      <h2 class="grey--text">Testimonios</h2>
+      <h2 class="grey--text">Bienes Raíces</h2>
 
-      <!-- Toolbar -->
-      <v-row>
-        <v-col cols="12" md="6" class="d-flex align-center">
-          <v-btn color="primary" depressed link to="/add-testimony">Agregar Testimonio</v-btn>
-        </v-col>
-        <v-col cols="12" md="6" class="d-flex align-center">
-        </v-col>
-      </v-row>
-
-      <v-card class="pa-2 mt-3" outlined>
-        <v-data-table
-          :headers="headers"
-          :items="reviews"
-          :items-per-page="10"
-          item-key="_id"
-          :options.sync="options"
-          :server-items-length="totalItems"
-          :footer-props="{
-            itemsPerPageText: 'Reseñas por página'
-          }"
-          :loading="loading"
-          loading-text="Cargando..."
-          disable-sort
-        >
-
-          <template v-slot:item.actions="{ item }">
-            <!-- <v-btn text small color="primary" :to="{ name: 'edit-post', params: { id: item._id} }">Editar</v-btn> -->
-            <v-btn text small color="error" @click="openDelete(item._id, item.customer)">Eliminar</v-btn>
-          </template>
-
-        </v-data-table>
-      </v-card>
     </v-container>
   </div>
 </template>

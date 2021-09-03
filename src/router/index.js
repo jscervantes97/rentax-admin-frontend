@@ -30,12 +30,37 @@ export default new Router({
         {
           path: "/add-development",
           name: "Add development",
-          component: () => import("@/views/Add-development.vue")
+          component: () => import("@/views/Add-development.vue") 
         },
         {
           path: "/developments",
           name: "developments",
           component: () => import("@/views/Developments.vue")
+        },
+        {
+          path: "/commercial",
+          name: "developments",
+          component: () => import("@/views/CommercialAreas.vue")
+        },
+        {
+          path: "/contactRequests",
+          name: "contactRequests",
+          component: () => import("@/views/ContactRequests.vue")
+        },
+        {
+          path: "/goods",
+          name: "goods",
+          component: () => import("@/views/Goods.vue")
+        },
+        {
+          path: "/placesAndOffices",
+          name: "placesAndOffices",
+          component: () => import("@/views/PlacesAndOfices.vue")
+        },
+        {
+          path: "/galery",
+          name: "galery",
+          component: () => import("@/views/GaleryProjects.vue")
         },
         {
           path: "/edit-development/:id",
@@ -113,9 +138,19 @@ export default new Router({
           component: () => import("@/views/Reviews.vue")
         },
         {
-          path: "/add-review",
+          path: "/add-testimony",
           name: "add-review",
           component: () => import("@/views/Add-review.vue")
+        },
+        {
+          path: "/add-placeOfice",
+          name: "add-placeOfice",
+          component: () => import("@/views/Add-centerOfice.vue")
+        },
+        {
+          path: "/add-proyect",
+          name: "add-proyect",
+          component: () => import("@/views/Add-proyect.vue")
         }
       ]
     }

@@ -1,4 +1,4 @@
-<template>
+<template> 
   <div>
     <v-navigation-drawer v-model="drawer" clipped fixed app>
       <v-list nav dense>
@@ -9,6 +9,33 @@
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Desarrollos</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item link to="/commercial">
+          <v-list-item-action>
+            <v-icon>mdi-home-city</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Áreas Comerciales</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item link to="/placesAndOffices">
+          <v-list-item-action>
+            <v-icon>mdi-home-city</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Plazas y Oficinas</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item link to="/goods">
+          <v-list-item-action>
+            <v-icon>mdi-home-city</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Bienes Raíces</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -30,24 +57,6 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link to="/vacancies">
-          <v-list-item-action>
-            <v-icon>mdi-briefcase</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Bolsa de trabajo</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item link to="/blog">
-          <v-list-item-action>
-            <v-icon>mdi-blogger</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Blog</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-
         <v-list-item link to="/reward">
           <v-list-item-action>
             <v-icon>mdi-gift</v-icon>
@@ -57,12 +66,30 @@
           </v-list-item-content>
         </v-list-item>
 
+        <v-list-item link to="/galery">
+          <v-list-item-action>
+            <v-icon>mdi-image</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Galeria de Proyectos </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
         <v-list-item link to="/reviews">
           <v-list-item-action>
             <v-icon>mdi-message-processing</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Reseñas clientes</v-list-item-title>
+            <v-list-item-title>Testimonios</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+                <v-list-item link to="/contactRequests">
+          <v-list-item-action>
+            <v-icon>mdi-frequently-asked-questions</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Solicitudes de Contacto</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
