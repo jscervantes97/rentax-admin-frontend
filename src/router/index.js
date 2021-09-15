@@ -148,6 +148,11 @@ export default new Router({
           component: () => import("@/views/Add-centerOfice.vue")
         },
         {
+          path: "/add-good",
+          name: "add-good",
+          component: () => import("@/views/Add-good.vue")
+        },
+        {
           path: "/add-proyect",
           name: "add-proyect",
           component: () => import("@/views/Add-proyect.vue")

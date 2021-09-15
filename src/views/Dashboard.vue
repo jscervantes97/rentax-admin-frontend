@@ -1,7 +1,9 @@
 <template>
   <div class="dashboard">
     <v-container>
-        <h2>Dashboard</h2>
+        <center>
+          <h2>Bienvenido</h2>
+        </center>
     </v-container>
   </div>
 </template>

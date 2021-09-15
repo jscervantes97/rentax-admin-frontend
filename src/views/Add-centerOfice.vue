@@ -151,6 +151,80 @@
                 ></v-textarea>
               </v-col>    
             </v-row>
+            <v-row>
+              <v-col cols="12" md="6" class="d-flex align-center">
+                <v-btn color="primary">Agregar Nivel</v-btn>
+              </v-col>
+              <v-col cols="12" md="6" class="d-flex align-center">
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" md="12">
+                  <v-text-field
+                    label="Titulo o Nombre Del Piso"
+                    v-model="form.description"
+                    :rules="rules.description"
+                    
+                  ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                  <v-text-field
+                    label="Precio de Renta por Metro Cuadrado"
+                    v-model="form.description"
+                    :rules="rules.description"
+                    rows="3"
+                    row-height="40"
+                  ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                  <v-text-field
+                    label="Precio de Servicio de Mantenimiento Por Metro Cuadrado"
+                    v-model="form.description"
+                    :rules="rules.description"
+                    rows="3"
+                    row-height="40"
+                  ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="12">
+                  <div
+                  v-if="!selectedFile"
+                  style="height:144px;width:100%;"
+                  class="grey lighten-3"
+                >
+                  <input
+                    id="imageFile"
+                    class="mb-4 add-image-btn"
+                    type="file"
+                    block
+                    @change="onFileChange"
+                  />
+                  <label for="imageFile" class="grey lighten-3">
+                    <span>
+                      <v-icon>mdi-cloud-upload</v-icon>
+                    </span>
+                    <br />Ingresa imagen del croquis del piso
+                  </label>
+                </div>
+                <!-- Logo Image -->
+                <div v-else style="position:relative">
+                  <v-btn
+                    color="red"
+                    class="v-btn--example"
+                    dark
+                    top
+                    right
+                    small
+                    fab
+                    style="position:absolute;z-index:3;top:-8px;right:20px;"
+                    @click="removeImage"
+                  >
+                    <v-icon>mdi-close</v-icon>
+                  </v-btn>
+                  <v-img :src="image" max-height="400px"></v-img>
+                </div>
+                <p v-if="imageRule" class="error--text py-3">Ingresa imagen del croquis del piso</p>
+              </v-col>
+            </v-row> 
           </v-container>
         </v-form>
       </v-card>

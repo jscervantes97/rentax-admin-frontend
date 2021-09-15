@@ -1,84 +1,137 @@
 <template>
   <div class="developments">
-    <v-dialog v-model="sectorDialog" width="700">
-      <v-card>
-        <v-card-title>Sectores</v-card-title>
-        <v-card-text>
-          <v-text-field
-              label="Nombre del sector"
-              v-model="newSector"
-          ></v-text-field>
-          <v-btn color="primary" depressed @click="addSector()">Agregar</v-btn>
-          <v-divider class="grey my-3"></v-divider>
-        </v-card-text>
-        <v-card-text>
-          <v-data-table
-            :headers="sectorHeaders"
-            :items="sectors"
-            :items-per-page="5"
-            class="elevation-0"
-            hide-default-footer
-          >
-            <template v-slot:item.actions="{ item }">
-              <v-btn text small color="error" @click="deleteSector(item._id)">Eliminar</v-btn>
-            </template>
-          </v-data-table>
-        </v-card-text>
-      </v-card>
-    </v-dialog>
   
-    <!-- Delete dialog-->
-    <v-dialog v-model="dialog" width="500">
-      <v-card>
-        <v-card-title class="headline error white--text" dark>Eliminar desarrollo</v-card-title>
-
-        <v-card-title>¿Seguro desea eliminar {{ selectedDevelopment.title}} ?</v-card-title>
-
-        <v-divider></v-divider>
-
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn text @click="dialog=false">Cancelar</v-btn>
-          <v-btn color="error" text @click="confirmDelete">Eliminar</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-
-    <v-container>
+    <v-container style="padding-top:5%; padding-left:2%; padding-right:2%;">
       <h2 class="grey--text">Desarrollos</h2>
-
-      <!-- Toolbar -->
-      <v-row>
-        <v-col cols="12" md="6" class="d-flex align-center">
-          <v-btn color="primary" depressed link to="/add-development">Agregar desarrollo</v-btn>
-          <v-btn color="secondary" depressed class="ml-3" @click="sectorDialog = true">Sectores</v-btn>
-        </v-col>
-        <v-col cols="12" md="6" class="d-flex align-center">
-          <!-- <v-text-field label="Buscar desarrollo" prepend-icon="mdi-magnify"></v-text-field> -->
-        </v-col>
-      </v-row>
-
-      <v-card class="pa-2 mt-3" outlined>
-        <v-data-table
-          :headers="headers"
-          :items="developments"
-          :items-per-page="10"
-          item-key="title"
-          :options.sync="options"
-          :server-items-length="totalItems"
-          :footer-props="{
-            itemsPerPageText: 'Desarrollos por página'
-          }"
-          :loading="loading"
-          loading-text="Cargando desarrollos..."
-          disable-sort
-        >
-          <template v-slot:item.actions="{ item }">
-            <v-btn text small color="primary" :to="{ name: 'edit-development', params: { id: item._id} }">Editar</v-btn>
-            <v-btn text small color="error" @click="openDelete(item._id, item.title)">Eliminar</v-btn>
-          </template>
-        </v-data-table>
-      </v-card>
+        <div style="display : flex ; flex-direction : row ; ">
+          <v-card class="mx-auto"
+          max-width="344"
+            outlined
+          >
+            <v-list-item three-line>
+              <v-list-item-content style="color: #003865;" >
+                <div class="text-overline mb-4">
+                  Desarrollos
+                </div>
+                <v-list-item-title class="text-h5 mb-1">
+                  6,105
+                </v-list-item-title>
+              </v-list-item-content>
+                <v-img
+                max-height="60"
+                max-width="60"
+                src="../assets/Iconos/Dashboard/desarrollos.png"
+                ></v-img>
+            </v-list-item>
+            
+          </v-card>
+          <v-card 
+            outlined
+          >
+            <v-list-item three-line>
+              <v-list-item-content style="color: #003865;" >
+                <div class="text-overline mb-4">
+                  Áreas Comerciales
+                </div>
+                <v-list-item-title class="text-h5 mb-1">
+                  $55,500.00
+                </v-list-item-title>
+              </v-list-item-content>
+                <v-img
+                max-height="60"
+                max-width="60"
+                src="../assets/Iconos/Dashboard/areasComerciales.png"
+                ></v-img>
+            </v-list-item>
+            
+          </v-card>
+          <v-card class="mx-auto"
+          max-width="344"
+            outlined
+          >
+            <v-list-item three-line>
+              <v-list-item-content style="color: #003865;" >
+                <div class="text-overline mb-4">
+                  Plazas y Oficinas
+                </div>
+                <v-list-item-title class="text-h5 mb-1">
+                  $6,105,200.00
+                </v-list-item-title>
+              </v-list-item-content>
+                <v-img
+                max-height="60"
+                max-width="60"
+                src="../assets/Iconos/Dashboard/plazasyOficinas.png"
+                ></v-img>
+            </v-list-item>
+            
+          </v-card>
+        </div>
+         <div style="display : flex ; flex-direction : row ;  margin-top : 2% ;">
+          <v-card class="mx-auto"
+          max-width="344"
+            outlined
+          >
+            <v-list-item three-line>
+              <v-list-item-content style="color: #003865;" >
+                <div class="text-overline mb-4">
+                    Bienes Raices
+                </div>
+                <v-list-item-title class="text-h5 mb-1">
+                  1,902
+                </v-list-item-title>
+              </v-list-item-content>
+                <v-img
+                max-height="60"
+                max-width="60"
+                src="../assets/Iconos/Dashboard/bienesRaices.png"
+                ></v-img>
+            </v-list-item>
+            
+          </v-card>
+          <v-card 
+            outlined
+          >
+            <v-list-item three-line>
+              <v-list-item-content style="color: #003865;" >
+                <div class="text-overline mb-4">
+                  Propiedades
+                </div>
+                <v-list-item-title class="text-h5 mb-1">
+                  55,500,008
+                </v-list-item-title>
+              </v-list-item-content>
+                <v-img
+                max-height="60"
+                max-width="60"
+                src="../assets/Iconos/Dashboard/propiedades.png"
+                ></v-img>
+            </v-list-item>
+            
+          </v-card>
+          <v-card class="mx-auto"
+          max-width="344"
+            outlined
+          >
+            <v-list-item three-line>
+              <v-list-item-content style="color: #003865;" >
+                <div class="text-overline mb-4">
+                  Plazas y Oficinas
+                </div>
+                <v-list-item-title class="text-h5 mb-1">
+                  6,105,200
+                </v-list-item-title>
+              </v-list-item-content>
+                <v-img
+                max-height="60"
+                max-width="60"
+                src="../assets/Iconos/Dashboard/solicitudes.png"
+                ></v-img>
+            </v-list-item>
+            
+          </v-card>
+        </div>
+      
     </v-container>
   </div>
 </template>
